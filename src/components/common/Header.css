@@ -1,0 +1,37 @@
+.toggle {
+    display: none;
+}
+.mobile-nav {
+    display: none;
+}
+.show-navs {
+    visibility: visible;
+    height: 270px;
+    opacity: 1;
+}
+.responsive-nav {
+    transition: all 0.5s ease;
+}
+.hide-navs {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+@media (max-width: 1023px) {
+    .desktop-nav {
+        display: none;
+    }
+    .mobile-nav {
+        display: block;
+        width: 100%;
+    }
+    .toggle {
+        display: block;
+    }
+    .nav-link {
+        flex-direction: column;
+    }
+    .nav-option2 {
+        margin-left: 0px;
+    }
+}
