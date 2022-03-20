@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BookingForm from '../BookingForm/BookingForm';
 // import useHospitalData from '../../Hooks/useHospitalData';
 
 const ServiceDetails = () => {
@@ -57,6 +58,9 @@ const ServiceDetails = () => {
                         </div>
                     </div>
                 )}
+            </div>
+            <div className="my-12">
+                <BookingForm />
             </div>
         </div>
     );
