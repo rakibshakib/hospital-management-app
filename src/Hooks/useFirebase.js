@@ -90,7 +90,7 @@ const useFireBase = () => {
     }, [auth]);
     setTimeout(() => {
         setError('');
-    }, 6000);
+    }, 10000);
 
     return {
         googleSignIn,
