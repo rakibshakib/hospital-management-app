@@ -20,6 +20,7 @@ const useFireBase = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [isLoading, setIsloading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvide = new GoogleAuthProvider();
@@ -106,6 +107,7 @@ const useFireBase = () => {
         setName,
         isLoading,
         setIsloading,
+        admin,
     };
 };
 export default useFireBase;

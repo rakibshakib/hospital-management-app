@@ -7,6 +7,7 @@ import Register from './components/LoginRegister/Register';
 import ServiceDetails from './components/Service/ServiceDetails';
 import FirebaseProvider from './context/FirebaseProvider';
 import Home from './pages/Home';
+import PrivateRoute from './Routes/PrivateRoute';
 
 function App() {
     return (
@@ -20,7 +21,11 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route
                         path="/details-service/:id"
-                        element={<ServiceDetails />}
+                        element={
+                            <PrivateRoute>
+                                <ServiceDetails />
+                            </PrivateRoute>
+                        }
                     />
                 </Routes>
                 <Footer />

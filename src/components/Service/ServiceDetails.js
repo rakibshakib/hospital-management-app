@@ -15,18 +15,17 @@ const ServiceDetails = () => {
                 console.log(error);
             });
     }, [paramsId]);
-    console.log(targetService);
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto my-5">
             <div>
                 {targetService.length === 0 ? (
                     <div>
                         <h2>Loading......</h2>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-y-5">
-                        <div className="rounded-xl m-2 w-80">
+                    <div className="grid grid-cols-1 md:grid-cols-2 justify-items-start gap-y-5">
+                        <div className="rounded-xl m-2 mx-auto w-8/12">
                             <img
                                 className="w-full"
                                 src={targetService?.image}
