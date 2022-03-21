@@ -12,25 +12,7 @@ const Register = () => {
         setPassword,
         createUserWithEmailPassword,
         error,
-        setUser,
-        setError,
     } = useAuth();
-
-    // handle google sign in
-    const handleGoogleLogin = () => {
-        googleSignIn()
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
-                // history.push(redirect_uri)
-                setError('');
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setError(`${errorCode} - ${errorMessage}`);
-            });
-    };
 
     const userRegistrationHandeler = (e) => {
         e.preventDefault();
@@ -81,7 +63,7 @@ const Register = () => {
                 <p>----------Or-----------</p>
                 <button
                     disabled={Boolean(user.email)}
-                    onClick={handleGoogleLogin}
+                    onClick={googleSignIn}
                     className={`cursor-pointer flex flex-row justify-between items-center my-5 border-2 rounded-md py-2 px-5 ${
                         Boolean(user.email)
                             ? 'bg-gray-600 text-white cursor-not-allowed'

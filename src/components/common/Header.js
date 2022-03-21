@@ -5,7 +5,7 @@ import useAuth from '../../Hooks/useAuth';
 import './Header.css';
 
 const Header = () => {
-    const { user, logOutUser } = useAuth();
+    const { user, logOutUser, admin } = useAuth();
     // button toogle hooks
     const [toggle, setToogle] = React.useState(false);
     // toogle button handeler
@@ -64,6 +64,14 @@ const Header = () => {
                                 to="/myProfile"
                             >
                                 Profile
+                            </NavLink>
+                        )}
+                        {user.email && admin && (
+                            <NavLink
+                                className="inline-block mr-5 font-medium px-2 cursor-pointer "
+                                to="/dashboard"
+                            >
+                                Dash-Board
                             </NavLink>
                         )}
                         {user.email ? (

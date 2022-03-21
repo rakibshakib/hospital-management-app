@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
     createUserWithEmailAndPassword,
     getAuth,
@@ -27,7 +28,20 @@ const useFireBase = () => {
 
     const googleSignIn = () => {
         setIsloading(true);
-        return signInWithPopup(auth, googleProvide);
+        signInWithPopup(auth, googleProvide)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                // get user data when login
+                saveUserData(user.email, user.displayName, 'PUT');
+                // const destination = location?.state?.from || '/';
+                // history.replace(destination);
+                setError('');
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => setIsloading(false));
     };
     const logOutUser = () => {
         setIsloading(true);
@@ -47,6 +61,7 @@ const useFireBase = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user);
+                saveUserData(email, name, 'POST');
                 setError('Account Creating Success, please login..');
                 getName();
             })
@@ -81,17 +96,46 @@ const useFireBase = () => {
             });
     };
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
             } else {
             }
             setIsloading(false);
         });
+        return () => unsubscribed;
     }, [auth]);
-    setTimeout(() => {
-        setError('');
-    }, 10000);
+
+    // save user
+    const saveUserData = (email, displayName, method) => {
+        const user = { email, displayName };
+        method === 'POST'
+            ? axios
+                  .post('http://localhost:8000/users-data', user)
+                  .then(function (response) {})
+                  .catch(function (error) {
+                      console.log(error);
+                  })
+            : axios
+                  .put('http://localhost:8000/users-data', user)
+                  .then(function (response) {
+                      console.log(response);
+                  })
+                  .catch(function (error) {
+                      console.log(error);
+                  });
+    };
+    // check user isAdmin or not
+    useEffect(() => {
+        const url = `http://localhost:8000/users-data/${user.email}`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setAdmin(data.admin));
+    }, [user.email]);
+
+    // setTimeout(() => {
+    //     setError('');
+    // }, 10000);
 
     return {
         googleSignIn,
@@ -108,6 +152,7 @@ const useFireBase = () => {
         isLoading,
         setIsloading,
         admin,
+        saveUserData,
     };
 };
 export default useFireBase;

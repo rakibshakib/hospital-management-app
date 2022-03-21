@@ -8,29 +8,14 @@ const Login = () => {
         user,
         googleSignIn,
         setEmail,
-        setIsloading,
         setPassword,
         loginWithEmailPassword,
         error,
         setUser,
         setError,
+        saveUserData,
     } = useAuth();
 
-    const handleGoogleLogin = () => {
-        googleSignIn()
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
-                // history.push(redirect_uri)
-                setError('');
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setError(`${errorCode} - ${errorMessage}`);
-            })
-            .finally(() => setIsloading(false));
-    };
     // console.log(Boolean(user.email));
     // console.log(user.email);
     // login with email and password handeler
@@ -40,6 +25,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
+                saveUserData(user.email, user.displayName, 'PUT');
                 setUser(user);
                 // history.push(redirect_uri)
                 setError('');
@@ -90,7 +76,7 @@ const Login = () => {
                 <p>----------Or-----------</p>
                 <button
                     disabled={Boolean(user.email)}
-                    onClick={handleGoogleLogin}
+                    onClick={googleSignIn}
                     className={`cursor-pointer flex flex-row justify-between items-center my-5 border-2 rounded-md py-2 px-5 ${
                         Boolean(user.email)
                             ? 'bg-gray-600 text-white cursor-not-allowed'

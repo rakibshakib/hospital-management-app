@@ -1,26 +1,27 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Footer from './components/common/Footer';
-import Header from './components/common/Header';
-import Login from './components/LoginRegister/Login';
-import Register from './components/LoginRegister/Register';
+import ManageAppoinment from './components/Dashboard/ManageAppoinment';
+import ManageService from './components/Dashboard/ManageService';
 import ServiceDetails from './components/Service/ServiceDetails';
 import FirebaseProvider from './context/FirebaseProvider';
 import Contact from './pages/Contact';
+import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import Loginpage from './pages/Loginpage';
+import RegisterPage from './pages/RegisterPage';
 import UserProfile from './pages/UserProfile/UserProfile';
+import AdminRoutes from './Routes/AdminRoutes';
 import PrivateRoute from './Routes/PrivateRoute';
 
 function App() {
     return (
         <FirebaseProvider>
             <BrowserRouter>
-                <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Loginpage />} />
+                    <Route path="/register" element={<RegisterPage />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route
                         path="/myProfile"
@@ -38,8 +39,32 @@ function App() {
                             </PrivateRoute>
                         }
                     />
+                    <Route
+                        path="/dashboard"
+                        element={
+                            <AdminRoutes>
+                                <Dashboard />
+                            </AdminRoutes>
+                        }
+                    >
+                        <Route
+                            path="manageAppoinments"
+                            element={
+                                <AdminRoutes>
+                                    <ManageAppoinment />
+                                </AdminRoutes>
+                            }
+                        />
+                        <Route
+                            path="manageServices"
+                            element={
+                                <AdminRoutes>
+                                    <ManageService />
+                                </AdminRoutes>
+                            }
+                        />
+                    </Route>
                 </Routes>
-                <Footer />
             </BrowserRouter>
         </FirebaseProvider>
     );
