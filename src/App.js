@@ -7,8 +7,10 @@ import ServiceDetails from './components/Service/ServiceDetails';
 import FirebaseProvider from './context/FirebaseProvider';
 import Contact from './pages/Contact';
 import Dashboard from './pages/Dashboard';
+import DepertmentPage from './pages/DepertmentPage';
 import Home from './pages/Home';
 import Loginpage from './pages/Loginpage';
+import NotFound from './pages/NotFound';
 import RegisterPage from './pages/RegisterPage';
 import UserProfile from './pages/UserProfile/UserProfile';
 import AdminRoutes from './Routes/AdminRoutes';
@@ -24,6 +26,8 @@ function App() {
                     <Route path="/login" element={<Loginpage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/depertment" element={<DepertmentPage />} />
+
                     <Route
                         path="/myProfile"
                         element={
@@ -73,6 +77,7 @@ function App() {
                             }
                         />
                     </Route>
+                    <Route path="/*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </FirebaseProvider>

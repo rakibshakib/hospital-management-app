@@ -136,10 +136,10 @@ const BookingForm = () => {
                         </select>
                     </div>
                     <button
-                        className="border py-3 px-5 bg-slate-700 text-white rounded-md my-5"
+                        className="border py-3 px-5 bg-slate-700 text-white rounded-md mt-8"
                         type="submit"
                     >
-                        Submit Form
+                        Confirm Appoinment
                     </button>
                 </form>
 

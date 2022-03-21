@@ -49,7 +49,7 @@ const Review = () => {
                 className="mySwiper"
             >
                 {productReview.map((item) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={item?._id}>
                         <ReviewCart key={item?._id} item={item} />
                     </SwiperSlide>
                 ))}

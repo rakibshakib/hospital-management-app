@@ -40,13 +40,13 @@ const Header = () => {
                         </NavLink>
                         <NavLink
                             className=" nav-items py-3 px-2 ml-5 transition delay-75 duration-300 ease-in-out"
-                            to="/booking"
+                            to="/depertment"
                         >
                             <span>Depertment</span>
                         </NavLink>
                         <NavLink
                             className="nav-items py-3 px-2 ml-5 transition delay-75 duration-300 ease-in-out"
-                            to="/about"
+                            to="/"
                         >
                             <span>Testing Opportunities</span>
                         </NavLink>
