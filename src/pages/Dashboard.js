@@ -6,7 +6,7 @@ import DashboardHeader from '../components/Dashboard/DashboardHeader';
 
 const Dashboard = () => {
     return (
-        <div className="bg-slate-700 h-screen text-white">
+        <div className="bg-slate-700 h-full text-white">
             <div className="">
                 <div className="dash-board-container">
                     <div className="container mx-auto">

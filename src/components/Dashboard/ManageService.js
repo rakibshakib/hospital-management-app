@@ -4,6 +4,7 @@ import ServiceCart from './ServiceCart';
 
 const ManageService = () => {
     const [hospitalData, sethospitalData] = useState([]);
+
     useEffect(() => {
         axios
             .get('http://localhost:8000/all-services')
@@ -37,12 +38,13 @@ const ManageService = () => {
                 });
         }
     };
+
     return (
         <div>
             <h2 className="text-center font-semibold text-xl my-3">
                 Life Care Hospital All Running Services
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-y-5 my-5 justify-items-center">
+            <div className="flex flex-col ">
                 {hospitalData.map((item) => (
                     <ServiceCart
                         item={item}

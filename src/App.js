@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ManageAppoinment from './components/Dashboard/ManageAppoinment';
+import ManageFeedback from './components/Dashboard/ManageFeedback';
 import ManageService from './components/Dashboard/ManageService';
 import ServiceDetails from './components/Service/ServiceDetails';
 import FirebaseProvider from './context/FirebaseProvider';
@@ -60,6 +61,14 @@ function App() {
                             element={
                                 <AdminRoutes>
                                     <ManageService />
+                                </AdminRoutes>
+                            }
+                        />
+                        <Route
+                            path="manageFeedback"
+                            element={
+                                <AdminRoutes>
+                                    <ManageFeedback />
                                 </AdminRoutes>
                             }
                         />

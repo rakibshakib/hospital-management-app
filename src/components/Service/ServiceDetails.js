@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import BookingForm from '../BookingForm/BookingForm';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
+import Doctor from '../Doctors/Doctor';
 // import useHospitalData from '../../Hooks/useHospitalData';
 
 const ServiceDetails = () => {
@@ -67,6 +68,7 @@ const ServiceDetails = () => {
                     <BookingForm />
                 </div>
             </div>
+            <Doctor />
             <Footer />
         </>
     );
