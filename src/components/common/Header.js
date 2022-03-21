@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaBars } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import './Header.css';
@@ -58,9 +59,12 @@ const Header = () => {
                     </div>
                     <div>
                         {user?.email && (
-                            <p className="inline-block mr-5 font-medium border-b-2 px-2 ">
-                                {user.displayName}
-                            </p>
+                            <NavLink
+                                className="inline-block mr-5 font-medium px-2 cursor-pointer "
+                                to="/myProfile"
+                            >
+                                Profile
+                            </NavLink>
                         )}
                         {user.email ? (
                             <button
@@ -87,7 +91,7 @@ const Header = () => {
                         onClick={handleToggle}
                         className="text-2xl toggle text-white mx-12 py-5"
                     >
-                        {/* <FaBars /> */}
+                        <FaBars />
                     </button>
                     <div
                         className={`flex flex-col justify-center items-center text-white font-medium responsive-nav  ${

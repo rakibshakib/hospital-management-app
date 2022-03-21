@@ -18,8 +18,8 @@ const ServiceDetails = () => {
     }, [paramsId]);
 
     return (
-        <div className="container mx-auto my-5">
-            <div>
+        <div className=" my-5">
+            <div className="container mx-auto">
                 {targetService.length === 0 ? (
                     <div>
                         <h2>Loading......</h2>
@@ -59,7 +59,7 @@ const ServiceDetails = () => {
                     </div>
                 )}
             </div>
-            <div className="my-12">
+            <div className="my-12 py-3 bg-slate-700">
                 <BookingForm />
             </div>
         </div>

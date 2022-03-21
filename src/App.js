@@ -6,7 +6,9 @@ import Login from './components/LoginRegister/Login';
 import Register from './components/LoginRegister/Register';
 import ServiceDetails from './components/Service/ServiceDetails';
 import FirebaseProvider from './context/FirebaseProvider';
+import Contact from './pages/Contact';
 import Home from './pages/Home';
+import UserProfile from './pages/UserProfile/UserProfile';
 import PrivateRoute from './Routes/PrivateRoute';
 
 function App() {
@@ -19,6 +21,15 @@ function App() {
                     <Route path="/home" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route
+                        path="/myProfile"
+                        element={
+                            <PrivateRoute>
+                                <UserProfile />
+                            </PrivateRoute>
+                        }
+                    />
                     <Route
                         path="/details-service/:id"
                         element={
