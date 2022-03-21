@@ -111,13 +111,19 @@ const useFireBase = () => {
         const user = { email, displayName };
         method === 'POST'
             ? axios
-                  .post('http://localhost:8000/users-data', user)
+                  .post(
+                      'https://guarded-depths-47296.herokuapp.com/users-data',
+                      user
+                  )
                   .then(function (response) {})
                   .catch(function (error) {
                       console.log(error);
                   })
             : axios
-                  .put('http://localhost:8000/users-data', user)
+                  .put(
+                      'https://guarded-depths-47296.herokuapp.com/users-data',
+                      user
+                  )
                   .then(function (response) {
                       console.log(response);
                   })
@@ -127,7 +133,7 @@ const useFireBase = () => {
     };
     // check user isAdmin or not
     useEffect(() => {
-        const url = `http://localhost:8000/users-data/${user.email}`;
+        const url = `https://guarded-depths-47296.herokuapp.com/users-data/${user.email}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setAdmin(data.admin));

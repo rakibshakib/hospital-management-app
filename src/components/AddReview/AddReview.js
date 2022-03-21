@@ -29,7 +29,7 @@ const AddReview = () => {
         console.log('this is the review: ', review);
 
         axios
-            .post('http://localhost:8000/feedback', review)
+            .post('https://guarded-depths-47296.herokuapp.com/feedback', review)
             .then(function (response) {
                 if (response?.data?.insertedId) {
                     setReviewSuccess(true);

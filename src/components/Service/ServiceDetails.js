@@ -12,7 +12,9 @@ const ServiceDetails = () => {
     const [targetService, setTargetService] = useState({});
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/all-service/${paramsId.id}`)
+            .get(
+                `https://guarded-depths-47296.herokuapp.com/all-service/${paramsId.id}`
+            )
             .then((res) => setTargetService(res.data))
             .catch(function (error) {
                 // handle error

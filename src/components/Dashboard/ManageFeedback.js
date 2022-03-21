@@ -7,7 +7,7 @@ const ManageFeedback = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8000/all-feedback')
+            .get('https://guarded-depths-47296.herokuapp.com/all-feedback')
             .then((res) => setAllFeedback(res.data))
             .catch(function (error) {
                 // handle error

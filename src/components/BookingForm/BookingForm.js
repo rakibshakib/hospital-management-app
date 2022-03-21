@@ -30,7 +30,10 @@ const BookingForm = () => {
             key: Date.now(),
         };
         axios
-            .post('http://localhost:8000/add-appoinments', appoinmentInfo)
+            .post(
+                'https://guarded-depths-47296.herokuapp.com/add-appoinments',
+                appoinmentInfo
+            )
             .then(function (response) {
                 if (response?.data?.insertedId) {
                     setOrderSuccess(true);

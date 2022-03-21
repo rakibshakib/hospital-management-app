@@ -7,7 +7,7 @@ const ManageService = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8000/all-services')
+            .get('https://guarded-depths-47296.herokuapp.com/all-services')
             .then((res) => sethospitalData(res.data))
             .catch(function (error) {
                 // handle error
@@ -19,7 +19,7 @@ const ManageService = () => {
         const proceed = window.confirm(
             'Are You Sure Want to Delete Your Order ?'
         );
-        const url = `http://localhost:8000/all-service/${id}`;
+        const url = `https://guarded-depths-47296.herokuapp.com/all-service/${id}`;
         if (proceed) {
             axios
                 .delete(url)

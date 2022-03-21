@@ -10,7 +10,9 @@ const UserProfile = () => {
     const [myOrder, setMyOrder] = React.useState([]);
     React.useEffect(() => {
         axios
-            .post('http://localhost:8000/my-appoinment', { email: user?.email })
+            .post('https://guarded-depths-47296.herokuapp.com/my-appoinment', {
+                email: user?.email,
+            })
             .then((response) => {
                 setMyOrder(response.data);
             })

@@ -9,7 +9,7 @@ SwiperCore.use([Autoplay]);
 const Review = () => {
     const [productReview, setProductReview] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/all-feedback')
+        fetch('https://guarded-depths-47296.herokuapp.com/all-feedback')
             .then((res) => res.json())
             .then((data) => {
                 const approvedFeedback = data.filter(

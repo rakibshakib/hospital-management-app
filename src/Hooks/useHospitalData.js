@@ -5,7 +5,7 @@ const useHospitalData = () => {
     const [hospitalData, sethospitalData] = useState([]);
     useEffect(() => {
         axios
-            .get('http://localhost:8000/all-services')
+            .get('https://guarded-depths-47296.herokuapp.com/all-services')
             .then((res) => sethospitalData(res.data))
             .catch(function (error) {
                 // handle error

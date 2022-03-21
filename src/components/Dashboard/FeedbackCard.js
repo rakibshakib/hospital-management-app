@@ -7,7 +7,10 @@ const FeedbackCard = ({ item }) => {
 
     const approveFeedback = (id) => {
         axios
-            .patch('http://localhost:8000/update-feedback', { _id: id })
+            .patch(
+                'https://guarded-depths-47296.herokuapp.com/update-feedback',
+                { _id: id }
+            )
             .then((res) => {
                 setStatus('approved');
                 setIsApproved(true);

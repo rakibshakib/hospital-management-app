@@ -6,7 +6,7 @@ const ManageAppoinment = () => {
     const [allAppoinmnets, setAllapoinments] = useState([]);
     useEffect(() => {
         axios
-            .get('http://localhost:8000/all-appoinments ')
+            .get('https://guarded-depths-47296.herokuapp.com/all-appoinments ')
             .then((res) => setAllapoinments(res.data))
             .catch(function (error) {
                 // handle error
@@ -18,7 +18,7 @@ const ManageAppoinment = () => {
         const proceed = window.confirm(
             'Are You Sure Want to Delete Your Order ?'
         );
-        const url = `http://localhost:8000/all-appoinments/${id}`;
+        const url = `https://guarded-depths-47296.herokuapp.com/all-appoinments/${id}`;
         if (proceed) {
             axios
                 .delete(url)
