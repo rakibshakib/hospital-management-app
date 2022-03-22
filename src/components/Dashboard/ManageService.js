@@ -40,18 +40,24 @@ const ManageService = () => {
     };
 
     return (
-        <div>
+        <div className="h-screen">
             <h2 className="text-center font-semibold text-xl my-3">
                 Life Care Hospital All Running Services
             </h2>
             <div className="flex flex-col ">
-                {hospitalData.map((item) => (
-                    <ServiceCart
-                        item={item}
-                        key={item._id}
-                        handleDelteService={handleDelteService}
-                    />
-                ))}
+                {hospitalData.length === 0 ? (
+                    <div>
+                        <h2 className="text-center font-xl ">Loading.......</h2>
+                    </div>
+                ) : (
+                    hospitalData.map((item) => (
+                        <ServiceCart
+                            item={item}
+                            key={item._id}
+                            handleDelteService={handleDelteService}
+                        />
+                    ))
+                )}
             </div>
         </div>
     );

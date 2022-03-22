@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -28,8 +29,11 @@ const ServiceDetails = () => {
             <div className="my-5">
                 <div className="container mx-auto">
                     {targetService.length === 0 ? (
-                        <div>
-                            <h2>Loading......</h2>
+                        <div className="flex justify-center items-center my-5">
+                            <div>
+                                <CircularProgress />
+                                <h2>Loading........</h2>
+                            </div>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 justify-items-start gap-y-5">

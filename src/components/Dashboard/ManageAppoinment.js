@@ -39,16 +39,22 @@ const ManageAppoinment = () => {
     };
     console.log(allAppoinmnets);
     return (
-        <div>
+        <div className="h-screen">
             <h2 className="text-xl font-medium">All Appoinments: </h2>
             <div>
-                {allAppoinmnets.map((item) => (
-                    <AppoinmentCard
-                        key={item._id}
-                        item={item}
-                        handleDeleteAppoinment={handleDeleteAppoinment}
-                    />
-                ))}
+                {allAppoinmnets.length === 0 ? (
+                    <div>
+                        <h2 className="text-center font-xl ">Loading.......</h2>
+                    </div>
+                ) : (
+                    allAppoinmnets.map((item) => (
+                        <AppoinmentCard
+                            key={item._id}
+                            item={item}
+                            handleDeleteAppoinment={handleDeleteAppoinment}
+                        />
+                    ))
+                )}
             </div>
         </div>
     );

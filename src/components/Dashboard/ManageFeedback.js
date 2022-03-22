@@ -17,14 +17,20 @@ const ManageFeedback = () => {
     console.log(allFeedback);
 
     return (
-        <div>
+        <div className="h-screen">
             <h2 className="text-center font-medium text-xl">
                 Manage All Feed back
             </h2>
             <div className="flex flex-wrap gap-x-5 gap-y-3">
-                {allFeedback.map((item) => (
-                    <FeedbackCard key={item._id} item={item} />
-                ))}
+                {allFeedback.length === 0 ? (
+                    <div>
+                        <h2 className="text-center font-xl ">Loading.......</h2>
+                    </div>
+                ) : (
+                    allFeedback.map((item) => (
+                        <FeedbackCard key={item._id} item={item} />
+                    ))
+                )}
             </div>
         </div>
     );
